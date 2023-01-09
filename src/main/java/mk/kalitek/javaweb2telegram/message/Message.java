@@ -1,8 +1,14 @@
 package mk.kalitek.javaweb2telegram.message;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table
 public class Message {
+    @Id
+    @SequenceGenerator(name = "message_sequence", sequenceName = "message_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "message_sequence")
     private Long id;
     private String message_text;
     private String recipient;
